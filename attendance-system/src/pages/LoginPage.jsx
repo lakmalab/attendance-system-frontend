@@ -19,12 +19,11 @@ export default function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAlert("Log in Successful");
+  setAlert("Log in Successful");
     console.log(credentials); 
-    setTimeout(() => setAlert(""), 3000);
+    
   };
 
-  // Custom SVG icons to avoid dependency issues
   const UserIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

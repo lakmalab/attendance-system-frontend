@@ -16,7 +16,6 @@ function App() {
                     transition-colors duration-500 ">
       <LoginPage />
     </div>
-  
     </>
   )
 }
