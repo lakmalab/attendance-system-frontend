@@ -3,6 +3,7 @@ import AlertMessage from "../components/AlertMessage";
 
 export default function LoginPage() {
   const [alert, setAlert] = useState("");
+  
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -77,6 +78,10 @@ export default function LoginPage() {
 
   return (
     <>
+     <div className="min-h-screen flex items-center justify-center 
+                    bg-gradient-to-br from-blue-50 via-cyan-100 to-blue-200 
+                    dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 
+                    transition-colors duration-500 ">
   {alert && (
   <AlertMessage
     message={alert}
@@ -229,6 +234,7 @@ export default function LoginPage() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

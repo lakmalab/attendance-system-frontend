@@ -5,18 +5,15 @@ import './App.css'
 import HelloLakmal from './hello'
 import LoginPage from './pages/LoginPage'
 import { ThemeProvider } from '@material-tailwind/react'
+import AuthProvider from "./provider/authProvider";
+import Routes from "./routes";
 
 function App() {
 
   return (
-    <>
-    <div className="min-h-screen flex items-center justify-center 
-                    bg-gradient-to-br from-blue-50 via-cyan-100 to-blue-200 
-                    dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 
-                    transition-colors duration-500 ">
-      <LoginPage />
-    </div>
-    </>
+  <AuthProvider>
+    <Routes />
+  </AuthProvider>
   )
 }
 
