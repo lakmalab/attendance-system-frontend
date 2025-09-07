@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useAuth } from "../provider/authProvider";
 import { ProtectedRoute } from "./ProtectedRoute";
 import LoginPage from "../pages/LoginPage";
+import Dashboard from "../pages/Dashboard";
 
 const Routes = () => {
   const { token } = useAuth();
@@ -19,7 +20,7 @@ const Routes = () => {
       children: [
         {
           path: "/",
-          element: <div>User Home Page</div>,
+          element: <Dashboard/>,
         },
         {
           path: "/profile",

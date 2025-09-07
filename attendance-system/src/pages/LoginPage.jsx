@@ -1,10 +1,9 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import AlertMessage from "../components/AlertMessage";
-import axios from "../api/axios";
-import AuthContext from "../provider/authProvider";
 import { useAuth } from "../provider/authProvider";
+import authService from "../service/authService";
 
-const LOGIN_URL = "/auth/login";
+
 
 export default function LoginPage() {
   const { setToken } = useAuth();
@@ -27,26 +26,14 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        LOGIN_URL,
-        {
-          email: credentials.username,
-          password: credentials.password
-        },
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-
-      if (response.data?.token) {
-        setToken(response.data.token);
-        console.log(response.data.token);
-        
+      const data = await authService.login(credentials);
+      if (data?.token) {
+        setToken(data.token);
+        console.log("Logged in with token:", data.token);
       }
     } catch (error) {
-      console.log("Login failed. Please try again.");
-
-    
+      console.error("Login failed:", error);
+      setAlert("Login failed. Please check your credentials and try again.");
     }
   };
 
